@@ -27,7 +27,7 @@ legend({exper.legend{2,1},exper.legend{2,2},exper.legend{3,2}},'location', 'sout
 grid on;
 legend boxoff;
 hold('off')
-figures.printfig(fig);
+output.printfig(fig);
 
 %% Figure 9(b): Robot Diffusion Curve
 fig = figure('Name',char(strcat(figname,'diffusionCurve')));
@@ -45,7 +45,7 @@ legend({'Data',exper.legend{2,1},exper.legend{2,2},exper.legend{3,2}},'location'
 legend boxoff;
 grid on;
 hold('off')
-figures.printfig(fig);
+output.printfig(fig);
 
 %% Table 3: Robot Tax Incidence
 % GDP in 2019

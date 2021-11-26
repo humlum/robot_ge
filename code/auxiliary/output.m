@@ -1,12 +1,12 @@
 classdef output % Auxiliary functions for analyzing GE output
     methods(Static)
-        function [] = printfig(figin)
+        function [] = printfig(figin)            
             fig = figure(figin);
             fig.PaperUnits = 'centimeters';
             fig.PaperPositionMode = 'manual';
             fig.PaperPosition = [0 0 16 12];
             fig.PaperSize = [16 12];
-            filename = ['figs\' get(fig,'name') ''];
+            filename = ['..\output\' get(fig,'name') ''];
             print('-dpdf',['' filename '.pdf']);
             
         end

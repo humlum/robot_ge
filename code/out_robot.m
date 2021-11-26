@@ -15,7 +15,7 @@ set(gca,'FontSize',15)
 legend boxoff;
 grid on;
 hold('off')
-figures.printfig(fig);
+output.printfig(fig);
 
 %% Figure 5: Real Wage Effects of Industrial Robots
 wagesReal = geq.wages./permute(repmat(geq.cpi,1,1,env.nOcc+1,env.nSectors),[1 3 4 2]);
@@ -23,6 +23,19 @@ wagesReal = geq.wages./permute(repmat(geq.cpi,1,1,env.nOcc+1,env.nSectors),[1 3 
 % Average real wages
 wagesRealAvg = squeeze(sum(sum(wagesReal(:,1:end-1,:,:).*permute(repmat(squeeze(sum(sum(sum(geq.wrk.density(1,:,:,:,:,:,figs.tEval),4),3),2)),1,1,2),[3 1 2]),3),2)); % Average real wage effect (fixed shares)
 squeeze(log(wagesRealAvg(1,figs.tEval)./wagesRealAvg(2,figs.tEval)))*100
+
+% Production worker real wages
+yEval=2019;
+occRef=2;secRef=1;
+squeeze(log(wagesReal(1,occRef,secRef,yEval-1990+1)./wagesReal(2,occRef,secRef,yEval-1990+1)))*100
+
+% Tech worker real wages
+yEval=2019;
+occRef=3;secRef=1;
+squeeze(log(wagesReal(1,occRef,secRef,yEval-1990+1)./wagesReal(2,occRef,secRef,yEval-1990+1)))*100
+
+% Other occupations
+squeeze(log(wagesReal(1,:,:,yEval-1990+1)./wagesReal(2,:,:,yEval-1990+1)))*100
 
 fig = figure('Name',char(strcat(figname,'realWages')));
 hold on
@@ -44,7 +57,9 @@ ylim([min1 max1]);
 legend(figs.legendOrder,'location', 'southwest','FontSize', 11.5);
 legend boxoff;
 hold('off')
-figures.printfig(fig);
+output.printfig(fig);
+
+
 
 %% Figure 6: Decomposition of the Production Worker Wage Effect
 supplyLabor = nan(2,env.nOcc,env.nSectors,env.nYears);
@@ -89,7 +104,7 @@ for occ=2
         yticks(-40:20:40)
         legend boxoff;
         grid on;
-        figures.printfig(fig);
+        output.printfig(fig);
     end
 end
 
@@ -146,7 +161,7 @@ hold off
 ylim([-12 12])
 set(gca,'FontSize',15)
 legend boxoff;
-figures.printfig(fig);
+output.printfig(fig);
 
 
 %% Figure 8: The Effect of Industrial Robots on Employment Shares
@@ -168,7 +183,7 @@ for sec=1
         ylim([1.3 4.7])
         grid on;
         hold('off')
-        figures.printfig(fig);
+        output.printfig(fig);
     end
 end
 

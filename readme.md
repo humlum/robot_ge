@@ -2,7 +2,7 @@
 [comment]: # ( "> )
 
 # robot_ge
-This Matlab package implements the fixed-point algorithm for solving the dynamic general equilibrium of [Humlum (2020)](https://andershumlum.com/s/humlumJMP.pdf).
+This Matlab package implements the fixed-point algorithm for solving the dynamic general equilibrium of [Humlum (2021)](https://andershumlum.com/s/humlumJMP.pdf).
 
 ## Main Scripts (`~/code/`)
 
@@ -10,10 +10,10 @@ This Matlab package implements the fixed-point algorithm for solving the dynamic
 Load input parameter structures `env`, `par`, `init`, `exp`, `sol`, and set counterfactual experiment ``expNo``. Iterate on the equilibrium labor demand mapping until convergence in the path of wages. For a description of the algorithm, see [Online Appendix F.3](https://andershumlum.com/s/humlumJMP.pdf).
 
 ### `out_robot.m`
-Output figures and tables for [Section 6.2](https://andershumlum.com/s/humlumJMP.pdf#page=29) "The Distributional Impact of Industrial Robots".
+Output figures and tables for [Section 6.2](https://andershumlum.com/s/humlumJMP.pdf#page=30) "The Distributional Impact of Industrial Robots".
 
 ### `out_tax.m`
-Output figures and tables for [Section 6.3](https://andershumlum.com/s/humlumJMP.pdf#page=29) "Policy Counterfactuals: The Incidence of Robot Taxes".
+Output figures and tables for [Section 6.3](https://andershumlum.com/s/humlumJMP.pdf#page=37) "Policy Counterfactuals: The Incidence of Robot Taxes".
 
 
 ## Functions (`~/code/auxiliary`)

@@ -7,20 +7,20 @@ This Matlab package implements the fixed-point algorithm for solving the dynamic
 ## Main Scripts (`~/code/`)
 
 ### `solver.m` 
-Load input parameter structures `env`, `par`, `init`, `exp`, `sol`, and set counterfactual experiment ``expNo``. Iterate on the equilibrium labor demand mapping until convergence in the path of wages. For a description of the algorithm, see [Online Appendix F.3](https://andershumlum.com/s/humlumJMP.pdf).
+Load input parameter structures `env`, `par`, `init`, `exp`, `sol`, and set counterfactual experiment ``expNo``. Iterate on the equilibrium labor demand mapping until convergence in the path of wages. For a description of the algorithm, see [Section OA4.3](https://andershumlum.com/s/humlumJMP.pdf#page=65).
 
 ### `out_robot.m`
-Output figures and tables for [Section 6.2](https://andershumlum.com/s/humlumJMP.pdf#page=30) "The Distributional Impact of Industrial Robots".
+Output figures and tables for [Section 6.2](https://andershumlum.com/s/humlumJMP.pdf#page=31) "The Distributional Impact of Industrial Robots".
 
 ### `out_tax.m`
-Output figures and tables for [Section 6.3](https://andershumlum.com/s/humlumJMP.pdf#page=37) "Policy Counterfactuals: The Incidence of Robot Taxes".
+Output figures and tables for [Section 6.3](https://andershumlum.com/s/humlumJMP.pdf#page=38) "Policy Counterfactuals: The Incidence of Robot Taxes".
 
 
 ## Functions (`~/code/auxiliary`)
 The functions documented below are located in the scripts ``solve.m`` and ``simulate.m``. The script ``func.m`` contains smaller auxiliary model functions. The script ``output.m`` contains auxiliary functions for the counterfactual analysis in Sections 6.2 and 6.3.
 
 ### `solve.geq`
-Simulate firm and worker states forward given a path of wages. Given firm and worker states, solve for wage path that clears the static labor demand period-by-period. See [Online Appendix F.3](https://andershumlum.com/s/humlumJMP.pdf) for a further description.
+Simulate firm and worker states forward given a path of wages. Given firm and worker states, solve for wage path that clears the static labor demand period-by-period. See [Section OA4.3](https://andershumlum.com/s/humlumJMP.pdf#page=65) for a further description.
 ```
 [wages1, frmDensity1, wrkDensity1, errWages, errDensityFrm, errSupplySkills] =
   geq(env,par,init,sol,cRobot,wages0,frmDensity0,wrkDensity0,tStart) 
@@ -29,7 +29,7 @@ Simulate firm and worker states forward given a path of wages. Given firm and wo
 #### Description of arguments
 
 `env,par,init,sol`
-  : input structures; see [codebook](https://andershumlum.com/s/humlumJMP.pdf)
+  : input structures; see [codebook](https://github.com/humlum/robot_ge/blob/master/input/codebook.pdf)
 
 `cRobot`
   : robot adoption costs wage path, <img src="https://render.githubusercontent.com/render/math?math=c^R_{t}">
@@ -68,14 +68,14 @@ Simulate firm and worker states forward given a path of wages. Given firm and wo
 
 
 ### `solve.frm`
-Solve for firm continuation values using dynamic programming. See [Online Appendix F.1](https://andershumlum.com/s/humlumJMP.pdf) for further description.
+Solve for firm continuation values using dynamic programming. See [Section OA4.1](https://andershumlum.com/s/humlumJMP.pdf#page=63) for further description.
 ```
 v = frm(env,par,sol,profit,cRobot,tStart)
 ```
 #### Description of arguments
 
 `env,par,sol`
-  : input structures; see [codebook](https://andershumlum.com/s/humlumJMP.pdf)
+  : input structures; see [codebook](https://github.com/humlum/robot_ge/blob/master/input/codebook.pdf)
 
 `profit`
   : flow profit function, <img src="https://render.githubusercontent.com/render/math?math=\pi_{t}(R,\varphi)">
@@ -95,14 +95,14 @@ v = frm(env,par,sol,profit,cRobot,tStart)
 
 
 ### `solve.wrk`
-Solve for worker continuation values using dynamic programming. See [Online Appendix F.2](https://andershumlum.com/s/humlumJMP.pdf) for further description.
+Solve for worker continuation values using dynamic programming. See [Section OA4.2](https://andershumlum.com/s/humlumJMP.pdf#page=64) for further description.
 ```
 [v, policy] = wrk(env,par,wages,tStart)
 ```
 #### Description of arguments
 
 `env,par`
-  : input structures; see [codebook](https://andershumlum.com/s/humlumJMP.pdf)
+  : input structures; see [codebook](https://github.com/humlum/robot_ge/blob/master/input/codebook.pdf)
 
 `wages`
   : real wage path, <img src="https://render.githubusercontent.com/render/math?math=w_{t}">
@@ -127,7 +127,7 @@ Simulate firm states forward.
 #### Description of arguments
 
 `env,par`
-  : input structures; see [codebook](https://andershumlum.com/s/humlumJMP.pdf)
+  : input structures; see [codebook](https://github.com/humlum/robot_ge/blob/master/input/codebook.pdf)
 
 `densityInit`
   : Initial conditions for firm states
@@ -159,7 +159,7 @@ density = wrk(env,par,init,densityInit,policy,tStart)
 #### Description of arguments
 
 `env,par,init`
-  : input structures; see [codebook](https://andershumlum.com/s/humlumJMP.pdf)
+  : input structures; see [codebook](https://github.com/humlum/robot_ge/blob/master/input/codebook.pdf)
 
 `densityInit`
   : Initial conditions for firm states
